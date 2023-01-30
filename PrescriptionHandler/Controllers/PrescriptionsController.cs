@@ -19,7 +19,14 @@ namespace PrescriptionHandler.Controllers
             _databaseService = databaseService;
         }
 
-   
+        [Route("/api/prescriptions/{idPrescription}")]
+        [HttpGet]
+        public async Task<IActionResult> GetPrescriptionAsync(int idPrescription)
+        {
+            var result = await _databaseService.GetPrescriptionAsync(idPrescription);
+            return Ok(result.Output);
+        }
+
 
         [Route("/api/doctors")]
         [HttpGet]
@@ -33,7 +40,7 @@ namespace PrescriptionHandler.Controllers
         [HttpPost]
         public async Task<IActionResult> AddDoctorAsync([FromBody] DoctorRequestDto newDoctor)
         {
-            DatabaseResponseDto result;
+            DatabaseSingleObjectResponseDto result;
             try
             {
                 result = await _databaseService.AddDoctorAsync(newDoctor);
@@ -51,7 +58,7 @@ namespace PrescriptionHandler.Controllers
         public async Task<IActionResult> UpdateDoctorAsync(int idDoctor, [FromBody] DoctorRequestDto updatedDoctor)
         {
 
-            DatabaseResponseDto result;
+            DatabaseSingleObjectResponseDto result;
             try
             {
                 result = await _databaseService.UpdateDoctorAsync(idDoctor, updatedDoctor);
@@ -69,7 +76,7 @@ namespace PrescriptionHandler.Controllers
         public async Task<IActionResult> DeleteDoctorAsync(int idDoctor)
         {
 
-            DatabaseResponseDto result;
+            DatabaseSingleObjectResponseDto result;
             try
             {
                 result = await _databaseService.DeleteDoctorAsync(idDoctor);

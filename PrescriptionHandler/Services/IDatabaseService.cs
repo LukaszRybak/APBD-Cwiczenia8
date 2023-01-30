@@ -5,10 +5,10 @@ namespace PrescriptionHandler.Services
 {
     public interface IDatabaseService
     {
-        Task<DatabaseResponseDto> GetPrescriptionAsync(int idPrescription);
-        Task<DatabaseResponseDto> GetDoctorsAsync();
-        Task<DatabaseResponseDto> AddDoctorAsync(DoctorRequestDto newDoctor);
-        Task<DatabaseResponseDto> UpdateDoctorAsync(int idDoctor, DoctorRequestDto updatedDoctor);
-        Task<DatabaseResponseDto> DeleteDoctorAsync(int idDoctor);
+        Task<DatabaseSingleObjectResponseDto> GetPrescriptionAsync(int idPrescription);
+        Task<DatabaseSingleObjectResponseDto> GetDoctorsAsync();
+        Task<DatabaseSingleObjectResponseDto> AddDoctorAsync(DoctorRequestDto newDoctor);
+        Task<DatabaseSingleObjectResponseDto> UpdateDoctorAsync(int idDoctor, DoctorRequestDto updatedDoctor);
+        Task<DatabaseSingleObjectResponseDto> DeleteDoctorAsync(int idDoctor);
     }
 }

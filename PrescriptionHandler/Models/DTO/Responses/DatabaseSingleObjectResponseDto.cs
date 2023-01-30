@@ -1,12 +1,12 @@
 ﻿namespace PrescriptionHandler.Models.DTO.Responses
 {
-    public class DatabaseResponseDto
+    public class DatabaseSingleObjectResponseDto
     {
         public int StatusCode { get; set; }
         public string Message { get; set; }
-        public IEnumerable<object>? Output { get; set; }
+        public object? Output { get; set; }
 
-        public DatabaseResponseDto(int statusCode, string message, IEnumerable<object> output)
+        public DatabaseSingleObjectResponseDto(int statusCode, string message, object output)
         {
             StatusCode = statusCode;
             Message = message;
